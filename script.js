@@ -1,32 +1,28 @@
-function info (){
-"use strict";
-let money, time, rashOb, neobr, oneDay;
-money =  prompt("Ваш бюджет на месяц?"," ");
-time  =   prompt("Введите дату в формате YYYY-MM-DD","YYYY-MM-DD");
-rashOb = prompt("Введите обязательную статью расходов в этом месяце"," ");
-neobr  =   prompt("Во сколько обойдется?"," ");
-oneDay = (money-rashOb)/30;
-var appData = {
-    money: money,
-    time:  time,
-    
-    expenses : {
-        [rashOb] : neobr
-    },
-    optionalExpenses: {},
-    income : [],
-    savings : false,
+let money = prompt("Ваш бюджет на месяц?", ''),
+	time = prompt('Введите дату в формате YYYY-MM-DD', '');
 
-    
+let appData = {
+	budget: money,
+	expenses: {},
+	optionalExpenses: {},
+	income: [],
+	timeData: time,
+	savings: false
 };
-console.log(appData.expenses);
-console.log(appData);
-console.log(appData.income);
-alert("бюджет на 1 день" + " " + oneDay);
-}
-info();
 
+let a1 = prompt("Введите обязательную статью расходов в этом месяце", ''),
+	a2 = prompt("Во сколько обойдется?", ''),
+	a3 = prompt("Введите обязательную статью расходов в этом месяце", ''),
+	a4 = prompt("Во сколько обойдется?", '');
 
+appData.expenses[a1] = a2;
+appData.expenses[a3] = a4;
+
+// Важно! В последних версиях браузеров поведение работы со свойствами объектов поменялось. 
+// Теперь синтаксис через точку может не работать. Поэтому выше я использовал квадратные скобки. 
+// Если вы это читаете - то в скором времени обновится и видео в самом курсе. Спасибо за внимание!
+
+alert(appData.budget / 30);
 
 
 
